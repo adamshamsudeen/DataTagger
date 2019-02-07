@@ -3,6 +3,9 @@ from django.db import models
 
 User = settings.AUTH_USER_MODEL
 
+
+
+
 # Create your models here.
 class Profile(models.Model):
     user              = models.OneToOneField(User, on_delete=models.CASCADE) # user.profile
@@ -17,3 +20,14 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.user.username
+
+def default_user():
+    return Profile.objects.get(pk=1).pk
+
+class Project(models.Model):
+    project_name      = models.CharField(max_length=120, unique=True)
+    project_owner     = models.ForeignKey(Profile, on_delete=models.SET_DEFAULT, default=default_user)
+    timestamp         = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.project_name
