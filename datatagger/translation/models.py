@@ -6,13 +6,7 @@ from profiles.models import Profile, Project
 def default_user():
     return Profile.objects.get(pk=1).pk
 
-# class Project(models.Model):
-#     project_name      = models.CharField(max_length=120, unique=True)
-#     project_owner     = models.ForeignKey(Profile, on_delete=models.SET_DEFAULT, default=default_user)
-#     timestamp         = models.DateTimeField(auto_now_add=True)
 
-#     def __str__(self):
-#         return self.project_name
 
 class TranslateOrigin(models.Model):
     text             = models.CharField( max_length=500)
@@ -21,8 +15,6 @@ class TranslateOrigin(models.Model):
 
     def __str__(self):
         return self.text
-
-
 
 class PartiallyTranslated(models.Model):
     language                    = models.CharField(max_length=2)

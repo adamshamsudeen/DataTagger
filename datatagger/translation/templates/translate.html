@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div>
+   <h3> {{origin.text}} </h3>
+
+    <form action="/translate/" method="post">
+    {% csrf_token %}
+ 
+    {{form.as_table}}
+    <input type="submit" value="OK">
+</form>
+</div>
+
+{% endblock %}
