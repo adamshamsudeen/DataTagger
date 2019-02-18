@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container"></div>
+<script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+
+
+    
+    
+<div style="background-size: cover;margin: 0;padding: 0;">
+
+<form method="post" class="fh5co-form" action="{% url 'login' %}">
+	{% if form.errors %}
+	<div class="alert alert-warning alert-dismissible" role="alert">
+		<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<p>Your username and password didn't match. Please try again.</p>
+	</div>
+		
+		{% endif %}
+
+		{% if next != "/" and next is not None %}
+		    {% if user.is_authenticated %}
+		    <p>Your account doesn't have access to this page. To proceed,
+		    please login with an account that has access.</p>
+		    {% else %}
+		    <p>Please login to see this page.</p>
+		    {% endif %}
+	{% endif %}
+	<h2>Login</h2>
+{% csrf_token %}
+
+<div class="form-group">
+	<label>Username: </label>{{ form.username }}<br>
+	<label>Password: </label>{{ form.password }}<br>
+
+	<input class="btn btn-primary" type="submit" value="login" />
+	<p>Need to <a href='{% url "register" %}'>register</a>?</p>	
+</div>
+
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+
+</div>
+</div>
+
+
+{# Assumes you setup the password_reset view in your URLconf #}
+
+{% endblock %}
