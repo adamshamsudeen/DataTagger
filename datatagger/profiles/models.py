@@ -1,8 +1,14 @@
 from django.conf import settings
 from django.db import models
-
+# from translation.models import LanguageText
 User = settings.AUTH_USER_MODEL
 
+
+class LanguageText(models.Model):
+    language         = models.CharField(max_length=2)
+
+    def __str__(self):
+        return self.language
 
 class Profile(models.Model):
     user              = models.OneToOneField(User, on_delete=models.CASCADE) # user.profile
@@ -11,6 +17,7 @@ class Profile(models.Model):
     timestamp         = models.DateTimeField(auto_now_add=True)
     updated           = models.DateTimeField(auto_now=True)
     contributions     = models.IntegerField()
+    language          = models.ManyToManyField(LanguageText)
 
 
     def __str__(self):
