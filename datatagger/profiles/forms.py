@@ -1,7 +1,7 @@
 from django import forms
 
 from django.contrib.auth import get_user_model
-
+from .models import Profile
 User = get_user_model()
 
 
@@ -35,7 +35,7 @@ class RegisterForm(forms.ModelForm):
         user = super(RegisterForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         #user.password = "asdfasd"
-        user.is_active = False
+        # user.is_active = False
        
 
         if commit:
@@ -45,3 +45,7 @@ class RegisterForm(forms.ModelForm):
         return user
 
 
+class ProfileForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('profession','language')
