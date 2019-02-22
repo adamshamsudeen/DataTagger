@@ -3,8 +3,11 @@ from django.views.generic import ListView, CreateView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from django.http import HttpResponse, HttpResponseRedirect
+from django.contrib.auth.decorators import login_required
+
 from profiles.models import Project, Profile
 from .forms import RegisterForm, ProfileForm
+
 # Create your views here.
 
 def index(request):
@@ -28,6 +31,7 @@ class ProjectListView( ListView):
         return Project.objects.all()
 
 
+@login_required()
 def profile_view(request):
     # if request.user.is_authenticated:
     # form = ProfileForm
