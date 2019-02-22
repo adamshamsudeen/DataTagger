@@ -33,7 +33,12 @@
     </fieldset>
     <br>
     <div class="form-actions">
+     {% if request.user.is_authenticated %}
         <button type="submit" class="btn btn-primary" >Submit</button>
+    {% else %}
+        <button type="submit" class="btn btn-primary"  ><a  href={% url "login" %}>Login</a></button>
+        
+    {% endif %}
     </div>
 </form>
 </div>
