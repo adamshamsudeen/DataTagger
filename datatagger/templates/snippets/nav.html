@@ -20,7 +20,7 @@
                  <li><a href='{% url "translate" %}'>TRANSLATE</a></li>
                  <li><a href='{% url "index" %}'>PROJECTS</a></li>
                  {% if request.user.is_authenticated %}
-                 <li><a href='{% url "index" %}'>PROFILE</a></li>
+                 <li><a href='{% url "profile" %}'>PROFILE</a></li>
                  <li ><a  href='{% url "logout" %}'>LOGOUT</a></li>
                  <li style="float: right;"><a  href='{% url "index" %}'>Logged in as:{{request.user.username}}</a></li>
                  {% else %}

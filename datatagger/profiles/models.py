@@ -20,6 +20,7 @@ class Profile(models.Model):
     updated           = models.DateTimeField(auto_now=True)
     contributions     = models.IntegerField(default='0')
     language          = models.ManyToManyField(LanguageText, blank=True)
+    full_name         = models.CharField(max_length=120, blank=True, null=True)
 
 
     def __str__(self):

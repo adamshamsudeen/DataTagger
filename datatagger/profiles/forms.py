@@ -1,7 +1,7 @@
 from django import forms
 
 from django.contrib.auth import get_user_model
-from .models import Profile
+from .models import Profile, LanguageText
 User = get_user_model()
 
 
@@ -46,6 +46,14 @@ class RegisterForm(forms.ModelForm):
 
 
 class ProfileForm(forms.ModelForm):
+    # language = forms.MultipleChoiceField(
+    #     widget=forms.CheckboxSelectMultiple,
+
+    # )
+    # language         = forms.ModelMultipleChoiceField(queryset=LanguageText.objects.all())
     class Meta:
         model = Profile
-        fields = ('profession','language')
+        fields = ('full_name','profession','language')
+        # widgets = {
+        #     'language': forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,),
+        # }
