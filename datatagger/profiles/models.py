@@ -19,8 +19,10 @@ class Profile(models.Model):
     timestamp         = models.DateTimeField(auto_now_add=True)
     updated           = models.DateTimeField(auto_now=True)
     contributions     = models.IntegerField(default='0')
-    language          = models.ManyToManyField(LanguageText, blank=True)
+    language          = models.ManyToManyField(LanguageText, related_name='all_the_languages', blank=True)
     full_name         = models.CharField(max_length=120, blank=True, null=True)
+    dialect           = models.CharField(max_length=120, blank=True, null=True)
+    mother_tongue     = models.ForeignKey(LanguageText, related_name='mother_tongue', on_delete= models.PROTECT, blank=True, null = True)
 
 
     def __str__(self):

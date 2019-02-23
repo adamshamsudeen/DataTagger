@@ -51,9 +51,12 @@ class ProfileForm(forms.ModelForm):
 
     # )
     # language         = forms.ModelMultipleChoiceField(queryset=LanguageText.objects.all())
+    # dialect = forms.CharField()
+    # dialect = forms.CharField(widget=TextArea(attrs={'placeholder': u'Bla bla'}))
+
     class Meta:
         model = Profile
-        fields = ('full_name','profession','language')
-        # widgets = {
-        #     'language': forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple,),
-        # }
+        fields = ('full_name','profession','language','mother_tongue','dialect')
+        # widgets = { 
+        #     'dialect': forms.CharField(attrs={'placeholder': 'Where did you grow up?'}),
+        # }   
