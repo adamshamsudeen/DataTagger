@@ -36,8 +36,6 @@ def profile_view(request):
     # if request.user.is_authenticated:
     # form = ProfileForm
     # instance = User.get_object_or_404(Profile, id=id)
-    print(request.user.profile)
-    print(type(request.user.profile))
     form = ProfileForm(request.POST or None, instance=request.user.profile)
     if form.is_valid():
         form.save()

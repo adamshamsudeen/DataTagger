@@ -29,7 +29,8 @@ def translate(request):
     if not chosen:
         to_translate = TranslateOrigin.objects.last()
     else:
-        to_translate = TranslateOrigin.objects.get(language=language)
+        to_translate = TranslateOrigin.objects.filter(language=language)
+        to_translate = to_translate.order_by('?').first()
 
     if request.method == 'POST':
         form = TranslateForm(request.POST)
@@ -48,5 +49,4 @@ def translate(request):
 
     else:
         form = TranslateForm()
-    print(chosen)
     return render(request, 'translate.html', context={'origin': to_translate, 'form':form,'profile_filled':chosen})

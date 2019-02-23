@@ -5,7 +5,7 @@
 {% if not profile_filled %}
 <div class="container">
 <div class="alert alert-danger">
-  <strong>Complete</strong> your profile to help translate your mother tongue.
+  <strong>Complete</strong> your <a href='{% url "profile" %}' class="alert-link">profile</a> to help translate your mother tongue.
 </div>
 </div>
 {% endif %}
