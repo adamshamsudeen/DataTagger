@@ -3,11 +3,19 @@ from .models import TranslateOrigin, TranslatedText
 from django import forms
 from profiles.models import LanguageText
 from .forms import TranslateForm
-# Create your views here.
 
+
+def _get_translate_object(language):
+    #approach1
+    # to_translate = TranslateOrigin.objects.filter(language=language)
+    # to_translate = to_translate.order_by('?').first()
+
+    #approach2
+    #get a record from translateorigin which has no record in translatedtext
+    to_translate = TranslateOrigin.objects.filter(origin__isnull=True,language=language)
+    return to_translate.order_by('?').first()
 
 def translate(request):
-    # View code here...
     if request.user.is_authenticated:
         chosen = True
         user_languages = request.user.profile.language.values_list('language',flat=True)
@@ -20,21 +28,16 @@ def translate(request):
             language = LanguageText.objects.get(language='ta')
         else:
             chosen = False
-
-        
-        
     else:
         chosen = False
 
     if not chosen:
         to_translate = TranslateOrigin.objects.last()
     else:
-        to_translate = TranslateOrigin.objects.filter(language=language)
-        to_translate = to_translate.order_by('?').first()
+        to_translate = _get_translate_object(language)
 
     if request.method == 'POST':
         form = TranslateForm(request.POST)
-        # print(request.json())
         if form.is_valid():
             text = form.cleaned_data['translated_text']
             language = form.cleaned_data['language']
