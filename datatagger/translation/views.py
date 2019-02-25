@@ -19,6 +19,24 @@ def _get_translate_object(language):
 
 def translate(request):
     if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = TranslateForm(request.POST)
+            if form.is_valid():
+                text = form.cleaned_data['translated_text']
+                language = form.cleaned_data['language']
+                print(form.cleaned_data['origin'])
+                orig_pk = form.cleaned_data['origin']
+                print(text, language)
+                language, _ = LanguageText.objects.get_or_create(language=language)
+                translation = TranslatedText(language=language,translated_text=text,
+                            tagged_by = request.user.profile,
+                            origin_text = TranslateOrigin.objects.get(pk=orig_pk),
+                            )
+                translation.save()
+                form = TranslateForm()
+
+        else:
+            form = TranslateForm()
         chosen = True
         user_languages = request.user.profile.language.values_list('language',flat=True)
         if 'ml' in user_languages:
@@ -32,31 +50,12 @@ def translate(request):
             chosen = False
     else:
         chosen = False
+        form = TranslateForm()
 
     if not chosen:
         to_translate = TranslateOrigin.objects.last()
     else:
         to_translate = _get_translate_object(language)
 
-    if request.method == 'POST':
-        form = TranslateForm(request.POST)
-        if form.is_valid():
-            text = form.cleaned_data['translated_text']
-            language = form.cleaned_data['language']
-            print(form.cleaned_data['origin'])
-            orig_pk = form.cleaned_data['origin']
-            print(text, language)
-            language, _ = LanguageText.objects.get_or_create(language=language)
-            translation = TranslatedText(language=language,translated_text=text,
-                        tagged_by = request.user.profile,
-                        origin_text = TranslateOrigin.objects.get(pk=orig_pk),
-                        )
-            translation.save()
-            form = TranslateForm()
-            # HttpResponseRedirect('/translate/')
-        # return reverse_lazy('translate')
-
-
-    else:
-        form = TranslateForm()
+    
     return render(request, 'translate.html', context={'origin': to_translate, 'form':form,'profile_filled':chosen})
