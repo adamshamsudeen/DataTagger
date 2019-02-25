@@ -5,11 +5,11 @@ Tagging app for Indic Languages
 
 ## Requirements:
 
-`pip install -r requirements.txt`
+`pip3 install -r requirements.txt`
 
 ## Runnning Dev Server
 
-`python manage.py runserver`
+`python3 manage.py runserver`
 
 ## License
 
