@@ -7,3 +7,7 @@ Tagging app for Indic Languages
 
 `pip install -r requirements.txt`
 
+
+## License
+
+AGPLv3
