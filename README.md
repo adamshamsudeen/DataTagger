@@ -7,6 +7,9 @@ Tagging app for Indic Languages
 
 `pip install -r requirements.txt`
 
+## Runnning Dev Server
+
+`python manage.py runserver`
 
 ## License
 
