@@ -10,9 +10,11 @@ from .forms import RegisterForm, ProfileForm
 
 # Create your views here.
 
+
 def index(request):
     # View code here...
     return render(request, 'index.html')
+
 
 class RegisterView(SuccessMessageMixin, CreateView):
     form_class = RegisterForm
@@ -25,10 +27,11 @@ class RegisterView(SuccessMessageMixin, CreateView):
         #     return redirect("/logout")
         return super(RegisterView, self).dispatch(*args, **kwargs)
 
-class ProjectListView( ListView):
-    def get_queryset(self):
+
+class ProjectList(ListView):
+    # def get_queryset(self):
         # return Product.objects.filter(owner=self.request.user)
-        return Project.objects.all()
+    model =  Project
 
 
 @login_required()
@@ -40,4 +43,4 @@ def profile_view(request):
     if form.is_valid():
         form.save()
         return HttpResponseRedirect('/profile/')
-    return render(request, 'profile.html', {'form': form}) 
+    return render(request, 'profile.html', {'form': form})
