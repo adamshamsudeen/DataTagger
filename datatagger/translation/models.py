@@ -12,6 +12,8 @@ class TranslateOrigin(models.Model):
     language         = models.ForeignKey(LanguageText, on_delete= models.PROTECT)
     timestamp        = models.DateTimeField(auto_now_add=True)
     project_name     = models.ForeignKey(Project, on_delete=models.PROTECT)
+    can_be_tagged    = models.BooleanField(default=False)
+    validated        = models.BooleanField(default=False)
 
     def __str__(self):
         return self.text
