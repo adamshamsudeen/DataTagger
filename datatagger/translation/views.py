@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.contrib.auth.decorators import login_required
 from .models import TranslateOrigin, TranslatedText
 from django import forms
 from profiles.models import LanguageText
@@ -63,3 +64,44 @@ def translate(request):
         to_translate = _get_translate_object(language)
     context = {'origin': to_translate, 'form': form, 'profile_filled': chosen}
     return render(request, 'translate.html', context=context)
+
+@login_required
+def validate_data(request):
+    def get_lang():
+        user_languages = request.user.profile.language.values_list(
+            'language', flat=True)
+        if 'ml' in user_languages:
+            print("ml - user")
+            language = LanguageText.objects.get(language='ml')
+
+        elif 'ta' in user_languages:
+            print("ta - user")
+            language = LanguageText.objects.get(language='ta')
+        else:
+            language = LanguageText.objects.get(language='ta')
+        return language
+    # if request.user.is_authenticated:
+    if request.method == 'POST':
+        if 'good_text' in request.POST:
+            print("good")
+            to_change = TranslateOrigin.objects.get(pk=request.POST.get("origin"))
+            to_change.validated = True
+            to_change.can_be_tagged = True
+            to_change.save()
+        elif 'bad_text' in request.POST:
+            print("bad")
+            to_change = TranslateOrigin.objects.get(pk=request.POST.get("origin"))
+            to_change.validated = True
+            to_change.save()
+        
+        # print(request.POST.get("origin"))
+        # print(request.POST)
+        
+    lang = get_lang()
+    print(lang)
+    to_validate =  TranslateOrigin.objects.filter(language=lang, validated=False).last()
+    context = {'origin': to_validate}
+    return render(request, 'validate_translate.html', context=context)
+
+
+

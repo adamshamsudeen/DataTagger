@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+   <h3> {{origin.text}} </h3>
+<hr>
+<div>
+<form action="" method="post">
+{% csrf_token %}
+{{ form_newsletter }}
+{% comment %} <input type="submit" name="good_text" value="Good enough" />
+<input type="submit" name="bad_text" value="Nah!" /> {% endcomment %}
+<input type="hidden" name="origin" value="{{origin.pk}}" />
+<button type="submit" name = "good_text" value="Good" class="btn btn-success">Good Enough</button>
+<button type="submit" name = "bad_text" value="Bad" class="btn btn-danger">Nah!</button>
+
+
+</form>
+
+</div>
+</div>
+
+{% endblock %}
