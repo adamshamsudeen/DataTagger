@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.contrib.auth.decorators import login_required
+from django.contrib.admin.views.decorators import staff_member_required
 from .models import TranslateOrigin, TranslatedText
 from django import forms
 from profiles.models import LanguageText
@@ -16,7 +17,7 @@ def _get_translate_object(language):
     # approach2
     # get a record from translateorigin which has no record in translatedtext
     to_translate = TranslateOrigin.objects.filter(
-        origin__isnull=True, language=language)
+        origin__isnull=True, language=language, can_be_tagged=True)
     return to_translate.order_by('?').first()
 
 
@@ -65,7 +66,9 @@ def translate(request):
     context = {'origin': to_translate, 'form': form, 'profile_filled': chosen}
     return render(request, 'translate.html', context=context)
 
-@login_required
+
+
+@staff_member_required
 def validate_data(request):
     def get_lang():
         user_languages = request.user.profile.language.values_list(
@@ -80,7 +83,7 @@ def validate_data(request):
         else:
             language = LanguageText.objects.get(language='ta')
         return language
-    # if request.user.is_authenticated:
+
     if request.method == 'POST':
         if 'good_text' in request.POST:
             print("good")
@@ -94,9 +97,7 @@ def validate_data(request):
             to_change.validated = True
             to_change.save()
         
-        # print(request.POST.get("origin"))
-        # print(request.POST)
-        
+
     lang = get_lang()
     print(lang)
     to_validate =  TranslateOrigin.objects.filter(language=lang, validated=False).last()

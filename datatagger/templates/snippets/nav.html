@@ -18,6 +18,9 @@
          <div class="navbar-collapse collapse">
              <ul class="nav navbar-nav navbar-right">
                  <li><a href='{% url "translate" %}'>TRANSLATE</a></li>
+                 {% if user.is_superuser %}
+                    <li><a href='{% url "validate_text" %}'>VALIDATE TRANSLATION</a></li>
+                 {% endif %}
                  <li><a href='{% url "projects" %}'>PROJECTS</a></li>
                  {% if request.user.is_authenticated %}
                  <li><a href='{% url "profile" %}'>PROFILE</a></li>
