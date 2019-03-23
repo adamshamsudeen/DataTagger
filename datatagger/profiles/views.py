@@ -13,7 +13,7 @@ from .forms import RegisterForm, ProfileForm
 
 def index(request):
     # View code here...
-    return render(request, 'home.html')
+    return render(request, 'index.html')
 
 
 class RegisterView(SuccessMessageMixin, CreateView):
