@@ -4,7 +4,11 @@ from django.db.models.signals import post_save
 
 
 def default_user():
-    return Profile.objects.get(pk=1).pk
+    try:
+        comment = Profile.objects.get(pk=1).pk
+    except:
+        comment = None
+    return comment
 
 
 class TranslateOrigin(models.Model):
@@ -32,7 +36,7 @@ class TranslatedText(models.Model):
 
     language                     = models.ForeignKey(LanguageText, on_delete= models.PROTECT)
     translated_text              = models.CharField(max_length=500)
-    tagged_by                    = models.ForeignKey(Profile, on_delete=models.SET_DEFAULT, default=default_user)
+    tagged_by                    = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
     partially_correct_text       = models.ForeignKey(PartiallyTranslated, on_delete=models.SET_NULL, blank=True, null=True)
     origin_text                  = models.ForeignKey(TranslateOrigin, on_delete=models.CASCADE, related_name="origin")
     timestamp                    = models.DateTimeField(auto_now_add=True)

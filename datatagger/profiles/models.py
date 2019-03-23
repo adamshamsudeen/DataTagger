@@ -55,11 +55,15 @@ class Profile(models.Model):
             return #sent_mail
 
 def default_user():
-    return Profile.objects.get(pk=1).pk
+    try:
+        comment = Profile.objects.get(pk=1).pk
+    except:
+        comment = None
+    return comment
 
 class Project(models.Model):
     project_name      = models.CharField(max_length=120, unique=True)
-    project_owner     = models.ForeignKey(Profile, on_delete=models.SET_DEFAULT, default=default_user)
+    project_owner     = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True)
     timestamp         = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
