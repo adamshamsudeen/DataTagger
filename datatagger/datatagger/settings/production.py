@@ -25,7 +25,7 @@ SECRET_KEY = '_t49y&9wn_&hq_y^zazh!v9o%wcf%b0y(7u%t__=u&dr*&7rgs'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['35.184.138.74']
+ALLOWED_HOSTS = ['35.184.138.74','indicinp.org']
 
 
 # Application definition
@@ -139,4 +139,4 @@ LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/login/'
 LOGIN_URL = '/login/'
 STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
