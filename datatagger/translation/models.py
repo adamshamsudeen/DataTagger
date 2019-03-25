@@ -12,8 +12,8 @@ def default_user():
 
 
 class TranslateOrigin(models.Model):
-    text             = models.CharField( max_length=500)
-    language         = models.ForeignKey(LanguageText, on_delete= models.PROTECT)
+    text             = models.CharField( max_length=500, unique=True)
+    language         = models.ForeignKey(LanguageText, on_delete=models.PROTECT)
     timestamp        = models.DateTimeField(auto_now_add=True)
     project_name     = models.ForeignKey(Project, on_delete=models.PROTECT)
     can_be_tagged    = models.BooleanField(default=False)
@@ -23,9 +23,9 @@ class TranslateOrigin(models.Model):
         return self.text
 
 class PartiallyTranslated(models.Model):
-    language                    = models.ForeignKey(LanguageText, on_delete= models.PROTECT)
+    language                    = models.ForeignKey(LanguageText, on_delete=models.PROTECT)
     partially_translated_text   = models.CharField(max_length=500) 
-    origin_text                 = models.ForeignKey(TranslateOrigin, on_delete= models.CASCADE)
+    origin_text                 = models.ForeignKey(TranslateOrigin, on_delete=models.CASCADE)
     project_name                = models.ForeignKey(Project, on_delete=models.PROTECT)
     timestamp                   = models.DateTimeField(auto_now_add=True)
 
