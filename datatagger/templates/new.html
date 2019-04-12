@@ -1,0 +1,389 @@
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>IndicNLP</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="Palz Pal" />
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<link rel="shortcut icon" href="favicon.ico">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
+
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css' %}">
+
+	<!-- Modernizr JS -->
+	<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="{% static 'js/respond.min.js' %}"></script>
+	<![endif]-->
+	</head>
+	<body>
+	<nav id="fh5co-main-nav" role="navigation">
+		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle active"><i></i></a>
+		<div class="js-fullheight fh5co-table">
+			<div class="fh5co-table-cell js-fullheight">
+				<span class="text-center"><img src="{% static 'images/logo_small.png' %}" alt="IndicNLP"/></span>
+				<ul>
+					<li><a href="#">Home</a></li>
+					{% comment %} <li><a href="#contribute">Contribute</a></li> {% endcomment %}
+					<li><a href="{% url 'translate'%}"">Tasks</a></li>
+
+                    
+				</ul>
+			</div>
+		</div>
+	</nav>
+	
+	<div id="fh5co-page">
+		<header>
+			<div class="container">
+				<div class="fh5co-navbar-brand">
+					<div class="row">
+						<div class="col-xs-6">
+							<span class="text-left"><img src="{% static 'images/logo_small.png' %}" alt="IndicNLP"/> <a class="fh5co-logo" href="#">IndicNLP</a></span>
+						</div>
+						<div class="col-xs-6">
+							<p class="fh5co-social-icon text-right">
+							</p>
+						</div>
+					</div>
+					<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+				</div>
+			</div>
+		</header>
+		<aside id="fh5co-hero" class="js-fullheight">
+			<div class="flexslider js-fullheight">
+				<ul class="slides">
+			   	<li style="background-image: url({% static 'images/slide_1.jpg' %});">
+			   		<div class="overlay-gradient"></div>
+			   		<div class="container">
+			   			<div class="col-md-8 col-md-offset-2 col-md-push-4 js-fullheight slider-text">
+			   				<div class="slider-text-inner">
+			   					<div class="desc" style="text-align:center">
+			   						<h2 style="text-align:left">AI for Indian Languages</h2>
+									<p style="text-align:left">Linguistic data platform and computing tools for the regional languages of India </p>
+									<a href="#vision" style="color:#fff;padding: 2% 4%;
+									border: 2px solid #fff;
+									border-radius: 50px;">Our Vision</a>
+			   					</div>
+			   				</div>
+			   			</div>
+			   		</div>
+			   	</li>
+			  	</ul>
+		  	</div>
+		</aside>
+		<section class="fh5co-featured">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="post-entry">
+						<div class="col-md-6 col-md-push-6 nopaddingbottom animate-box">
+							<div class="post-image" style="background-color: #f5f5f5">
+								<p style="padding:15%; color: #7b7979;">
+								  It is not just a medium for communication. It is the medium of the mind. It shapes how we think. It is what helped us outsmart other animals, by carrying the knowledge of medicine, astronomy and etc over to us from the past. It is also the realm, where poetry lives. It is a time capsule of our history. It is where our ancestors are still alive. It is what comes close to what we might call heaven.<br/><br/> There have been thousands of languages in history, languages with written form and grammar has survived more compared to languages without a written form. Currently, Technology is playing the role of Written form and Grammar. 
+								</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-md-pull-5 animate-box">
+							<div class="display-tc">
+								<div class="desc" style="text-align:left">
+									<h3>Language is Beautiful</h3>
+									<p style="font-weight:200 !important;">Language is not a bunch of words strung together that we exchange in order to get our needs met. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="fh5co-featured">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="post-entry">
+						<div class="col-md-6 col-md-push-6 nopaddingbottom animate-box">
+							<div class="display-tc">
+								<div class="desc" style="text-align:left" style="background-color: #6e6e6e !important;">
+									<h3 style="padding:0 15%;">What is IndicNLP?</h3>
+									<p style="font-weight:200 !important; padding:0 15%;">IndicNLP is an open source initiative for NLP on Indigenous languages. </p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-md-pull-5 animate-box">
+							<div class="post-image" style="background-image: url({% static 'images/featured-1.jpg' %});">
+								<p style="padding:15%;">
+									Indian languages are complex and bring about unique challenges for NLP practitioners. In IndicNLP, we try to build language models, tools and techniques for NLP on Indian languages and use them to solve NLP tasks. We also try to consolidate and curate all open source work and data in NLP on Indian Languages.There are just so many things to do. And we need your help!
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="fh5co-featured">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="post-entry">
+						<div class="col-md-6 col-md-push-6 nopaddingbottom animate-box">
+							<div class="post-image" style="background-color: #f5f5f5">
+								<p style="padding:15%; color: #7b7979;">
+									You can’t code for every permutation combination of rules that is possible with a Language. Artificial Intelligence is a way to learn the rules from the data and solve the problem.
+								</p>
+							</div>
+						</div>
+						<div class="col-md-6 col-md-pull-5 animate-box">
+							<div class="display-tc">
+								<div class="desc" style="text-align:left">
+									<h3>Why do we need AI for this?</h3>
+									<p style="font-weight:200 !important;">When something is beautiful, it is very hard to understand. ...You can think of AI as Software 2.0. </p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="vision" class="fh5co-featured" style="background-color: #f5f5f5;">
+			<div class="container">
+				<div class="row">
+					<div class="text-element content-element circles-list">
+						<ul class="steper">
+							<li class="steper_list">
+								<h3>What are we planning to do?</h3>
+								<p>We are planning to build a bunch of open source tools like Speech to Text, Text to Speech, AutoComplete, Tokenizers, Generic Language Models etc. for Indian Languages. We feel that </p>
+							</li>
+							<li class="steper_list">
+								<h3>What have we done so far?</h3>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="project_box">
+											<h4 class="title">മലയാളം(Malayalam)</h4>
+											<ul>
+												<li><i class="fa fa-angle-right" aria-hidden="true"></i> &nbsp;Language Model/News Classifier <a href="https://github.com/adamshamsudeen/Vaaku2Vec" target="_blank" style="float:right;">GitHub <i class="fa fa-external-link" aria-hidden="true" title="external link"></i></a></li>
+											</ul>
+											<hr/>
+											<span><i class="fa fa-code" aria-hidden="true"></i> <a href="https://github.com/adamshamsudeen" target="_blank">Adam</a>(Winner ICFOSS Kerala) and <a href="https://github.com/kamalkraj" target="_blank">Kamal</a></span>
+										</div>
+									</div>
+									<div class="col-md-6">
+										<div class="project_box">
+											<h4 class="title">தமிழ்(Tamil)</h4>
+											<ul>
+												<li><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;Language Model/News Classifier <a href="https://github.com/vanangamudi/tamil-lm2" target="_blank" style="float:right;">GitHub <i class="fa fa-external-link" aria-hidden="true" title="external link"></i></a></li>
+											</ul>
+											<hr/>
+											<span><i class="fa fa-code" aria-hidden="true"></i> <a href="https://github.com/vanangamudi" target="_blabk">Selva</a></span>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-6">
+										<div class="project_box">
+											<h4 class="title">বাংলা(Bangla)</h4>
+											<ul>
+												<li><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;Language Model/News Classifier <a href="https://github.com/soham96/Bangla2Vec" target="_blank" style="float:right;">GitHub <i class="fa fa-external-link" aria-hidden="true" title="external link"></i></a></li>
+											</ul>
+											<hr/>
+											<span><i class="fa fa-code" aria-hidden="true"></i> <a href="https://github.com/Santara" target="_blank">Anirban</a> and <a href="https://github.com/soham96" target="_blank">Soham</a></span>
+										</div>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="fh5co-featured">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h3>Data</h3>
+						<p style="color:#7b7979">
+							We aim to collect datasets that focus on regional indian languages and keep them in the public domain for everyone forever. There are hundreds of regional language and numerous dialects in India. Availability of datasets in the open domain encourages and helps build AI applications.<br/><br/>
+							Check out the data that we have open sourced so far.
+						</p>
+						<ul class="data-language" style="list-style:none">
+							<li style="border-bottom: 1px solid #eee !important;"><a href="https://www.kaggle.com/paarulakan/tamilnews-7m.zip" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp; Tamil <i class="fa fa-external-link" title="external link"></i></a></li>
+							<li style="border-bottom: 1px solid #eee !important;"><a href="https://github.com/adamshamsudeen/Vaaku2Vec" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;Malayalam <i class="fa fa-external-link" title="external link"></i></a></li>
+							<li><a href="https://www.kaggle.com/csoham/classification-bengali-news-articles-indicnlp" target="_blank"><i class="fa fa-angle-right" aria-hidden="true"></i>&nbsp;Bangla <i class="fa fa-external-link" title="external link"></i></a></li>
+						</ul>
+					</div>
+					<div class="col-md-6">
+						<h3>Challenges</h3>
+						<svg width="100%" height="100%" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 680">
+							<path d="M0 140 140 140 140 320 320 320 320 460 460 460 460 600 600 600" stroke="#eee" stroke-width="2" fill="transparent"/>
+							<path d="M100 70 C480 200 520 380 540 540" stroke="#eee" stroke-width="2" fill="transparent" marker-end="url(#arrow)"/>
+							<defs>
+								<marker id="arrow" viewBox="0 0 10 10" refX="44" refY="2"
+									markerWidth="10" markerHeight="10"
+									orient="auto-start-reverse">
+									<path d="M 0 0 L 10 5 L 0 10 z" />
+								</marker>
+							</defs>
+							<linearGradient id="linear_box_1" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(45)">
+								<stop offset="0%" stop-color="#5990ff" top-opacity="0"></stop>
+								<stop offset="100%" stop-color="#fefeff" top-opacity="1"></stop>
+							</linearGradient>
+							<circle cx="80" cy="80" r="50" fill="url(#linear_box_1)"/>
+							<text x="80" y="80"
+								text-anchor="middle"
+								stroke="#000"
+								stroke-width="1px"
+								> Training
+							</text>
+							<linearGradient id="linear_box_2" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(45)">
+								<stop offset="0%" stop-color="#5990ff" top-opacity="0"></stop>
+								<stop offset="100%" stop-color="#fefeff" top-opacity="1"></stop>
+							</linearGradient>
+							<circle cx="230" cy="230" r="80" fill="url(#linear_box_2)"/>
+							<text x="230" y="230"
+								text-anchor="middle"
+								stroke="#000"
+								stroke-width="1px"
+								> Data Pre-processing
+							</text>
+							<linearGradient id="linear_box_3" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(45)">
+								<stop offset="0%" stop-color="#5990ff" top-opacity="0"></stop>
+								<stop offset="100%" stop-color="#fefeff" top-opacity="1"></stop>
+							</linearGradient>
+							<circle cx="390" cy="390" r="60" fill="url(#linear_box_3)"/>
+							<text x="390" y="390"
+								text-anchor="middle"
+								stroke="#000"
+								stroke-width="1px"
+								> Data Curation
+							</text>
+							<linearGradient id="linear_box_4" x1="0%" y1="0%" x2="100%" y2="100%" gradientTransform="rotate(45)">
+								<stop offset="0%" stop-color="#5990ff" top-opacity="0"></stop>
+								<stop offset="100%" stop-color="#fefeff" top-opacity="1"></stop>
+							</linearGradient>
+							<circle cx="530" cy="530" r="60" fill="url(#linear_box_4)"/>
+							<text x="530" y="530"
+								text-anchor="middle"
+								stroke="#000"
+								stroke-width="1px"
+								> Data Collection
+							</text>
+						</svg>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section class="fh5co-counters" style="background-image: url({% static 'images/hero.jpg' %});" id="counter-animate">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<h3 style="color:#fff">Why Open Source?</h3>
+						<p>
+							We all love Linux. Current cloud computing or AI wouldn’t be possible with Linux being open sourced. Most of the regional languages in India doesn’t have the market size to attract investments from big corporations to build the software in a profitable way. Open source initiative is it Kick start to build the tools or software and get the wheels rolling.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+		<section id="contribute" class="fh5co-featured" style="padding:0 15px 0 15px;">
+			<div class="row">
+				<div class="col-md-6 helpContainer" style="background-color: #4267b2;color: #fff !important;padding: 8%; overflow-y: scroll;">
+					<h3 style="color: #fff">How can you help?</h3>
+					<p style="color: #fff; font-weight: 500;">Share how you're advancing the future of AI, and what tools you're using to support your research and production needs.</p>
+					<p style="color: #fff;">There are multiple ways you can help us</p>
+					<ul class="help">
+						<li data-toggle="tooltip" data-placement="right" data-title="<span class='tooltipContent'>If you know English and Indic languages, you can help us translate. <hr/>If you know multiple Indic languages, you can help translate across Indian languages.</span>">Language Lover &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+						<li data-toggle="tooltip" data-placement="right" data-title="<span class='tooltipContent'>If you are not a programmer but understand the nuances of a language very well then you can help us acquire data, build better models and solve tasks for each language. <hr/>You can also help us build tests to verify our language models.</span>">Linguist  &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+						<li data-toggle="tooltip" data-placement="right" data-title="<span class='tooltipContent'>If you know how to build Deep Learning models you can pick and solve some of the problems and contribute to open source.</span>">Researcher  &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+						<li data-toggle="tooltip" data-placement="right" data-title="<span class='tooltipContent'>Deep Learning applications are better when we have labelled or tagged data. Gamified Data Tagging applications have to be built. <hr/>If you are an Android, iOS or Web developer there is work to be done in this area.</span>">App Developers  &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+						<li data-toggle="tooltip" data-placement="right" data-title="<span class='tooltipContent'>If you know how to write efficient code to store and retrieve data and more so audio dataset then we have some interesting work for you!</span>">Backend Engineers  &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+						<li data-toggle="tooltip" data-placement="right" data-title="<span class='tooltipContent'>Maintaining indicnlp website is a lot of work, if you know how to do it you can definitely contribute.</span>">UX/UI Engineers  &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+						<li data-toggle="tooltip" data-placement="right" data-title="<span class='tooltipContent'>Yes it is a category. If you talk at a lot of places, then you can mention about IndicNLP in your talks.</span>">Public Speakers  &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+						<li data-toggle="tooltip" data-placement="right" data-title="<span class='tooltipContent'>If you have some free time on your NVIDIA GPUs you can donate hours for model training.</span>">Gamers  &nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></li>
+					</ul>
+				</div>
+				<div class="col-md-6 contributeContainer" style="background-color: #f5f5f5;color: #7b7979 !important;padding: 8%;overflow-y: scroll;">
+					<h3 style="color: #333">How can you contribute?</h3>
+					<p style="color: #333; font-weight: 500;">If you are working in this are or you know someone who is, then you can connect with us. </p>
+					<ul class="contribute">
+						<li style="border-bottom: 2px solid #fff;"> <i class="fa fa-angle-right" aria-hidden="true"></i> You can add your work in our growing list of projects and resources here
+							<ul>
+								<li> <a href="https://github.com/vanangamudi/awesome-resources-for-indic-nlp" target="_blank">GitHub <i class="fa fa-external-link" title="external link"></i></a></li>
+							</ul>
+						</li>
+						<li style="border-bottom: 2px solid #fff;"><i class="fa fa-angle-right" aria-hidden="true"></i> To help us keep track of your work or to start a discussion for a language or a task, you can start a thread in our google group and facebook group here
+							<ul>
+								<li><a href="https://groups.google.com/forum/#!forum/indicnlp" target="_blank">Google Group <i class="fa fa-external-link" title="external link"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.facebook.com/groups/2249279975340362/?epa=SEARCH_BOX" target="_blank">Facebook Group <i class="fa fa-external-link" title="external link"></i></a></li>
+							</ul>
+						</li>
+						<li><i class="fa fa-angle-right" aria-hidden="true"></i> If you have any questions or suggestions, feel free to contact the mods at the above groups, or email us here
+							<ul>
+								<li><a href="mailto:indicnlp@googlegroups.com" target="_top">indicnlp@googlegroups.com</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</section>
+		<footer>
+			<div id="footer">
+				<div class="container">
+					<div class="row copy-right">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p class="fh5co-social-icon">
+								<!-- <a href="#"><i class="icon-twitter2"></i></a>
+								<a href="#"><i class="icon-facebook2"></i></a> -->
+							</p>
+							<p>Copyleft <span class="copyleft">&copy;</span> 2019 IndicNLP</p>
+						</div>
+					</div>
+					<div class="row" style="text-align:center">
+						<img src="{% static 'images/logo_small.png' %}" alt="IndicNLP"/>
+					</div>
+				</div>
+			</div>
+		</footer>
+	
+	</div>
+
+	<!-- jQuery -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<!-- Counters -->
+	<script src="{% static 'js/jquery.countTo.js' %}"></script>
+	<!-- Flexslider -->
+	<script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+
+	<!-- Main JS (Do not remove) -->
+	<script src="{% static 'js/main.js' %}"></script>
+	<script>
+		$(function () {
+			$(".helpContainer").css("height", $(".contributeContainer").outerHeight())
+			$("[data-toggle='tooltip']").tooltip({html:true})
+		})
+	</script>
+	</body>
+</html>
+
