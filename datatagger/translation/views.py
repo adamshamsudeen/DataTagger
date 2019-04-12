@@ -100,7 +100,7 @@ def validate_data(request):
 
     lang = get_lang()
     print(lang)
-    to_validate =  TranslateOrigin.objects.filter(language=lang, validated=False).last()
+    to_validate =  TranslateOrigin.objects.filter(language=lang, validated=False).order_by('?').first()
     context = {'origin': to_validate}
     return render(request, 'validate_translate.html', context=context)
 
