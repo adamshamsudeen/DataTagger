@@ -9,7 +9,11 @@ from .models import (
             TranslatedText
             )
 
-# admin.site.register(Project)
 admin.site.register(TranslateOrigin)
-admin.site.register(TranslatedText)
 admin.site.register(PartiallyTranslated)
+
+
+class TranslatedTextAdmin(admin.ModelAdmin):
+       raw_id_fields = ('partially_correct_text','origin_text',)
+
+admin.site.register(TranslatedText, TranslatedTextAdmin)
